@@ -21,9 +21,10 @@
     <p class="books-hours">
         Страниц: {{ book.pages }}
     </p>
+    {% if user.is_authenticated %}
     <a href="{% url 'basket:add' book.id %}"
        class="btn btn-success">
         Купить книгу
     </a>
-
+    {% endif %}
 {% endblock %}
