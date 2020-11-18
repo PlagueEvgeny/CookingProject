@@ -1,0 +1,24 @@
+{% extends 'mainapp/base.html' %}
+<title>{{ page_title|capfirst }}</title>
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mb-5">Профиль</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <span class="input-group-text">Имя пользователя</span>
+                    <input type="text" class="form-control"  value="{{ user.first_name }}">
+                    <span class="input-group-text">Логин</span>
+                    <input type="text" class="form-control"  value="{{ user.username }}">
+                </div>
+                <div class="col text-center">
+                    <span class="input-group-text">Почта</span>
+                    <input type="text" class="form-control"  value="{{ user.email }}" readonly>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-success float-right edit">Изменить</button>
+        </div>
+
+    </div>
+{% endblock %}

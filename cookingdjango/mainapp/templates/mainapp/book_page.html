@@ -1,0 +1,29 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+    <h1>Книга</h1>
+    <p class="books-name">
+        {{ book.name }}
+    </p>
+    <p class="books-name">
+        {{ book.avtor }}
+    </p>
+
+    <p class="books-name">
+        {{ book.get_industries_display }}
+    </p>
+    <p class="books-level">
+        Формат: {{ book.get_format_display }}
+    </p>
+    <p class="books-desc">
+        Описание: {{ book.desc }}
+    </p>
+    <p class="books-hours">
+        Страниц: {{ book.pages }}
+    </p>
+    <a href="{% url 'basket:add' book.id %}"
+       class="btn btn-success">
+        Купить книгу
+    </a>
+
+{% endblock %}

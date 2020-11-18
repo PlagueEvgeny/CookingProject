@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title|default:"аутентификация"|capfirst }}</title>
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    {% endblock %}
+    {% block js %}
+        <script src="/static/js/jquery-3.2.1.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+    {% endblock %}
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="{% url 'main:index' %}">Главная</a>
+        <a class="p-2 text-dark" href="{% url 'main:catalog' %}">Каталог</a>
+        <a class="p-2 text-dark" href="{% url 'basketapp:index' %}">Корзина</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}">Войти</a>
+        {% endif %}
+    </nav>
+
+</div>
+{% block content %}
+{% endblock %}
+<script>
+    $(document).ready(function () {
+        $('body').bootstrapMaterialDesign();
+    });
+    let notyf;
+    notyf = new Notyf({
+        duration: 2000,
+        position: {
+            x: 'right',
+            y: 'top',
+        },
+    });
+    $(".edit").click(function () {
+        notyf.error('Пока что изменить данные нельзя!')
+    });
+</script>
+</body>
+</html>
