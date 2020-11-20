@@ -1,12 +1,12 @@
 from basketapp.models import BooksBasket
-
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from mainapp.models import Books
 
 
-
+@login_required
 def index(request):
     items = BooksBasket.objects.filter(user=request.user)
     context = {
@@ -16,7 +16,7 @@ def index(request):
     return render(request, 'basketapp/basket.html', context)
 
 
-
+@login_required
 def add(request, book_id):
     book = Books.objects.get(pk=book_id)
     BooksBasket.objects.get_or_create(
@@ -29,7 +29,7 @@ def add(request, book_id):
     )
 
 
-
+@login_required
 def remove(request, book_basket_id):
     if request.is_ajax():
         item = BooksBasket.objects.get(id=book_basket_id)
