@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from mainapp.models import SubjectCategory, Books
 
@@ -8,13 +8,14 @@ def index(request):
 
 
 def catalog(request):
-    categories = SubjectCategory.objects.all()
+    categories = SubjectCategory.objects.filter()
     context = {
         'categories': categories,
         'page_title': 'каталог'
     }
 
     return render(request, 'mainapp/catalog.html', context)
+
 
 def catalog_section(request, category_pk):
     books = Books.objects.filter(category_id=category_pk)
@@ -32,3 +33,15 @@ def book_page(request, book_pk):
         'page_title': 'страница книг'
     }
     return render(request, 'mainapp/book_page.html', context)
+
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = BooksForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = BooksForm()
+    return render(request, 'mainapp/book_page.html', {
+        'form': form
+    })

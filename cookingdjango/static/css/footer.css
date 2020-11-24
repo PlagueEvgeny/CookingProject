@@ -1,0 +1,40 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #474747;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.text-muted {
+    color: #6c757d !important;
+}
+.copyright {
+    width: 50%;
+    float: left;
+}
+.social {
+    width: 50%;
+    float: right;
+}
+
+
+.support {
+  background-color: green;
+  font-size: 0.8em;
+  width: 25%;
+}
+.footer_a{
+         float: left;
+         line-height: 50px;
+         text-decoration: none;
+         color: white;
+         text-align: center;
+         font-weight: bold;
+
+     @include transition(all, 0.3 s);
+}

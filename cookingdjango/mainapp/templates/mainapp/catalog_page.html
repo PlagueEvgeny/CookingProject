@@ -1,16 +1,24 @@
 {% extends 'mainapp/base.html' %}
 
 {% block content %}
-    <h1>Страница каталога</h1>
-    <div class="book-menu">
-        <ul>
+<div>
+
+    <h1>Книги</h1>
+    {% for item in books %}
+    <p>{{item.category.desc}}</p>
+    {% endfor %}
+    <div style="background-color: #FFE4E1;" class="book-menu">
+        <ul style="background-color: #FFE4E1;">
             {% for item in books %}
-                <li>
+
+                <li style="background-color: #FFE4E1;">
                     <a href="{% url 'main:book_page' item.pk %}">
-                        {{ item }}
+                        <img style="height: 300px" class="img-fluid" src="../../../{{ item.bookimage }}" alt="Card image" >
                     </a>
                 </li>
+
             {% endfor %}
         </ul>
     </div>
+</div>
 {% endblock %}

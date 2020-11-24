@@ -1,17 +1,33 @@
 {% extends 'mainapp/base.html' %}
 
 {% block content %}
-    <h1>Каталог</h1>
-    <div class="catalog-menu">
-        <ul>
-            {% for item in categories %}
-                <li>
-                    <a  href="{% url 'main:catalog_section' item.pk %}">
-                        {{ item }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
 
+
+
+
+<div style="background-color: #FFE4E1">
+<div class="container">
+        <div class="row">
+            {% for item in categories %}
+
+                <div style=" width: 18rem; padding: 0; margin-left: 2rem !important; margin-right: 2rem !important;" class="col m-1">
+
+                    <a style="color: #000; text-decoration: none;" href="{% url 'main:catalog_section' item.pk %}"><img style="width: 18rem; border-radius: 30px; float: left" src="{{ STATIC_URL }}{{ item.image.url }}" alt="Card image" >
+                        <div class="card h-100" style="background-color:#FFE4E1; height: auto !important; width: 18rem; border-width: 9px; border-radius: 30px; border-color: #484848">
+                            <div class="card-body">
+                            <p  class=" text-center">{{item}}</p>
+
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+</div>
+</div>
+
+<br>
+<br>
+<br>
 {% endblock %}
