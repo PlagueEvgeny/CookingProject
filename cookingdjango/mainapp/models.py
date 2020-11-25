@@ -50,6 +50,7 @@ class Books(models.Model):
     name = models.CharField(max_length=200)
     avtor = models.CharField(max_length=100)
     desc = models.TextField(blank=True)
+    avtordesc = models.TextField(blank=True)
     pages = models.IntegerField(default=0)
     format = models.CharField(max_length=2, choices=FORMAT_CHOICES, default=AUDIO)
     industries = models.CharField(max_length=2, choices=INDUSTRIES_CHOICES, default=WithoutIndustry, blank=True)
@@ -69,3 +70,16 @@ class Books(models.Model):
     class Meta:
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
+
+
+class Personality(models.Model):
+    name = models.CharField(max_length=128)
+    desc = models.TextField(blank=True)
+    photo = models.ImageField('Личность', upload_to='static/img/personality', height_field=None, width_field=None, max_length=100, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Личность'
+        verbose_name_plural = 'Личности'

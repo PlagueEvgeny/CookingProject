@@ -4,11 +4,9 @@
 <div>
 
     <h1>Книги</h1>
-    {% for item in books %}
-    <p>{{item.category.desc}}</p>
-    {% endfor %}
+
     <div style="background-color: #FFE4E1;" class="book-menu">
-        <ul style="background-color: #FFE4E1;">
+        <ul style="background-color: #FFE4E1; width: 100%;">
             {% for item in books %}
 
                 <li style="background-color: #FFE4E1;">

@@ -1,42 +1,50 @@
 {% extends 'mainapp/base.html' %}
 
 {% block content %}
-<div>
-    <h3 style="text-align: center">{{ book.name }}</h3>
-    <p> <img height="200px" class="img-fluid" src="../../../{{ book.bookimage }}" alt="Card image" >
-    </p>
+
+<div class="container" style="background-color: #FFE4E1;">
+    <div class="card mb-3" style="max-width: 100%;">
+                    <div class="row g-0" style="background-color: #FFE4E1;">
+                        <div class="col-md-4">
+
+                            <img class="card-img" alt="Обложка" src="../../../{{ book.bookimage }}">
+                            <h6 style="text-align: center">Краткая информация</h6>
+                            <p>Формат: {{ book.get_format_display }}<br>
+                            Страниц: {{ book.pages }}<br>
+                            Автор: {{book.avtor}}
+                            </p>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ book.name }}</h3>
+                                <p class="card-text"></p><p>{{ book.desc }}</p>
+
+
+                                <br>
 
 
 
-    </p>
-    <p class="books-name">
-        <img class="mr-3"  height="200px" src="../../../{{ book.avtorphoto }}" alt="Card image" >
-        {{ book.avtor }}
-    </p>
 
-    <p class="books-name">
-        {{ book.get_industries_display }}
-    </p>
-    <p class="books-level">
-        Формат: {{ book.get_format_display }}
-    </p>
-    <p class="books-desc">
-        Описание: {{ book.desc }}
-    </p>
-    <p class="books-hours">
-        Страниц: {{ book.pages }}
-    </p>
-    {% if user.is_authenticated %}
+
+                                 {% if user.is_authenticated %}
     <a href="{% url 'basket:add' book.id %}"
-       class="btn btn-success">
+       class="btn btn-success" style="background-color: LightSalmon; color: #000000;">
         Купить книгу
     </a>
     {% else %}
     <p class="">Что бы купить или скачать книгу авторизируйтесь</p>
     {% endif %}
     {% if user.is_authenticated %}
-    <a href="../../../{{ book.document }}" class="btn btn-success" download>Скачать файл</a>
+    <a href="../../../{{ book.document }}" style="background-color: darkSalmon; color: #000000;" class="btn btn-success" download>Скачать файл</a>
     {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+</div>
+<div class="container">
 </div>
 <br>
 <br>

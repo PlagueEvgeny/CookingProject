@@ -1,10 +1,19 @@
 from django.shortcuts import render, redirect
 
-from mainapp.models import SubjectCategory, Books
+from mainapp.models import SubjectCategory, Books, Personality
 
 
 def index(request):
     return render(request, 'mainapp/index.html')
+
+
+def personality_page(request, personality_pk):
+    personality = Personality.objects.get(pk=personality_pk)
+    context = {
+        'personality': personality,
+        'page_title': 'личности'
+    }
+    return render(request, 'mainapp/personality.html', context)
 
 
 def catalog(request):
@@ -33,6 +42,8 @@ def book_page(request, book_pk):
         'page_title': 'страница книг'
     }
     return render(request, 'mainapp/book_page.html', context)
+
+
 
 def model_form_upload(request):
     if request.method == 'POST':
