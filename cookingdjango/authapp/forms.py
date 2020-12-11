@@ -20,3 +20,4 @@ class RegisterForm(UserCreationForm):
         for name, item in self.fields.items():
             item.widget.attrs['class'] = f'form-control {name}'
             item.help_text = ''
+

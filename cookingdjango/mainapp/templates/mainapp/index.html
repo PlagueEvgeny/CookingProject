@@ -1,13 +1,16 @@
 {% extends 'mainapp/base.html' %}
 
 {% block content %}
-<div class="container">
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<br>
+<div class="container" style="height: 530px; align-content: center ">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 530px; width: 700px;     margin-left: auto;
+    margin-right: auto; ">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      {% for item in personality %}
-      <img class="d-block w-100" src="../../../{{ item.photo }}" alt="Первый слайд">
-      {% endfor %}
+      <a href="https://www.youtube.com/channel/UCsZ91HPsZlCTrfLikKT0f4Q"><img class="d-block w-100" style="height: 530px; width: 700px;" src="../../../static/img/slider/History.jpg" alt="Первый слайд"></a>
+    </div>
+    <div class="carousel-item">
+      <a href="https://www.youtube.com/channel/UCcbLZ5QgDIA0Ro2_305gQAQ"><img class="d-block w-100 " style="height: 530px; width: 700px;" src="../../../static/img/slider/Literatura.jpg" alt="Второй слайд"></a>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -20,4 +23,7 @@
   </a>
 </div>
 </div>
+
+<br>
+<br>
 {% endblock %}

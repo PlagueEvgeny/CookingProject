@@ -7,15 +7,6 @@ def index(request):
     return render(request, 'mainapp/index.html')
 
 
-def personality_page(request, personality_pk):
-    personality = Personality.objects.get(pk=personality_pk)
-    context = {
-        'personality': personality,
-        'page_title': 'личности'
-    }
-    return render(request, 'mainapp/personality.html', context)
-
-
 def catalog(request):
     categories = SubjectCategory.objects.filter()
     context = {
@@ -34,6 +25,14 @@ def catalog_section(request, category_pk):
     }
     return render(request, 'mainapp/catalog_page.html', context)
 
+def personality(request, category_pers_pk):
+    personality = Personality.objects.filter(category_pers_id=category_pers_pk)
+    context = {
+        'personality': personality,
+        'page_title': 'каталог личностей'
+    }
+    return render(request, 'mainapp/personality.html', context)
+
 
 def book_page(request, book_pk):
     book = Books.objects.get(pk=book_pk)
@@ -43,6 +42,14 @@ def book_page(request, book_pk):
     }
     return render(request, 'mainapp/book_page.html', context)
 
+
+def personality_page(request, personality_pk):
+    personalitys = Personality.objects.get(pk=personality_pk)
+    context = {
+        'personalitys': personalitys,
+        'page_title': 'личности'
+    }
+    return render(request, 'mainapp/personality_page.html', context)
 
 
 def model_form_upload(request):

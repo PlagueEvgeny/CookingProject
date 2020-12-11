@@ -3,18 +3,16 @@
 {% block content %}
 <div>
 
-    <h1>Книги</h1>
+    <h1></h1>
 
     <div style="background-color: #FFE4E1;" class="book-menu">
         <ul style="background-color: #FFE4E1; width: 100%;">
             {% for item in books %}
-
                 <li style="background-color: #FFE4E1;">
                     <a href="{% url 'main:book_page' item.pk %}">
                         <img style="height: 300px" class="img-fluid" src="../../../{{ item.bookimage }}" alt="Card image" >
                     </a>
                 </li>
-
             {% endfor %}
         </ul>
     </div>

@@ -73,6 +73,8 @@ class Books(models.Model):
 
 
 class Personality(models.Model):
+    category = models.ForeignKey(SubjectCategory,
+                                 on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
     desc = models.TextField(blank=True)
     photo = models.ImageField('Личность', upload_to='static/img/personality', height_field=None, width_field=None, max_length=100, null=True)

@@ -46,4 +46,7 @@ def profile(request):
     context = {
         'page_title': 'Профиль',
     }
+
     return render(request, 'authapp/profile.html', context)
+
+
