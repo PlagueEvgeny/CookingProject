@@ -3,6 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+	<link rel="shortcut icon" href="../../../static/img/icon/logo.png" type="image/png">
     <title>{{ page_title|default:"Книги"|capfirst }}</title>
     {% block css %}
         <link rel="stylesheet" href="/static/css/bootstrap.min.css">
@@ -16,6 +17,7 @@
         <script src="/static/js/jquery-3.2.1.min.js"></script>
         <script src="/static/js/bootstrap.min.js"></script>
         <script src="{% static 'js/basket.js' %}"></script>
+		<script src="/static/js/notyf.min.js"></script>
     {% endblock %}
 </head>
 <body style="background-color: #FFE4E1;">
@@ -81,17 +83,6 @@
 <script>
     $(document).ready(function () {
         $('body').bootstrapMaterialDesign();
-    });
-    let notyf;
-    notyf = new Notyf({
-        duration: 2000,
-        position: {
-            x: 'right',
-            y: 'top',
-        },
-    });
-    $(".edit").click(function () {
-        notyf.error('Пока что изменить данные нельзя!')
     });
 </script>
 </body>

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from authapp.forms import LoginForm, RegisterForm
+from authapp.forms import LoginForm, RegisterForm, ProfileForm
 
 
 def login(request):
@@ -43,10 +43,20 @@ def register(request):
     return render(request, 'authapp/register.html', context)
 
 def profile(request):
-    context = {
-        'page_title': 'Профиль',
-    }
+        if request.method == 'POST':
+            postdata = request.POST.copy()
+            form = ProfileForm(postdata)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse('auth:login'))
+        else:
+            form = ProfileForm()
 
-    return render(request, 'authapp/profile.html', context)
+
+        context = {
+            'page_title': 'Профиль',
+            'form': form,
+        }
+        return render(request, 'authapp/profile.html', context)
 
 

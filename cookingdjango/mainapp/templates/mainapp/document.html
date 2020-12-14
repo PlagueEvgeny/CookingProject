@@ -1,0 +1,7 @@
+{% extends 'mainapp/base.html'%}
+
+{% block content %}
+<h1>{{ document.name }}</h1>
+<p>{{ document.desc }}</p>
+<img class="card-img" style="width: 300px" alt="Обложка" src="../../../{{ document.photo }}">
+{% endblock %}

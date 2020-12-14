@@ -13,12 +13,13 @@
                 </div>
                 <div class="col text-center">
                     <span class="input-group-text">Почта</span>
-                    <input type="text" class="form-control"  value="{{ user.email }}" readonly>
+                    <input type="email" class="form-control"  value="{{ user.email }}" readonly>
+                    <span class="input-group-text">Пароль</span>
+                    <input type="password" class="form-control"  value="{{ user.password }}" readonly>
                 </div>
             </div>
             <br>
             <button type="submit" class="btn btn-outline-success float-right edit">Изменить</button>
         </div>
-
     </div>
 {% endblock %}

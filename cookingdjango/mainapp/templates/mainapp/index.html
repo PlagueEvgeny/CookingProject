@@ -2,15 +2,23 @@
 
 {% block content %}
 <br>
-<div class="container" style="height: 530px; align-content: center ">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm" style="border-radius: 10px; border: double gold;">
+      <h1 style="background-color: #f0f0f0; text-align: center; ">Статьи</h1>
+    </div>
+    <div class="col-sm" style="border-radius: 10px;">
+      <div style="height: 530px; align-content: center;  ">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 530px; width: 700px;     margin-left: auto;
     margin-right: auto; ">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <a href="https://www.youtube.com/channel/UCsZ91HPsZlCTrfLikKT0f4Q"><img class="d-block w-100" style="height: 530px; width: 700px;" src="../../../static/img/slider/History.jpg" alt="Первый слайд"></a>
+      <a href="https://www.youtube.com/channel/UCsZ91HPsZlCTrfLikKT0f4Q"><img class="d-block w-100" style="height: 530px; width: 700px; border-radius: 10px;" src="../../../static/img/slider/History.jpg" alt="Первый слайд"></a>
     </div>
     <div class="carousel-item">
-      <a href="https://www.youtube.com/channel/UCcbLZ5QgDIA0Ro2_305gQAQ"><img class="d-block w-100 " style="height: 530px; width: 700px;" src="../../../static/img/slider/Literatura.jpg" alt="Второй слайд"></a>
+      <a href="https://www.youtube.com/channel/UCcbLZ5QgDIA0Ro2_305gQAQ"><img class="d-block w-100 " style="height: 530px; width: 700px; border-radius: 10px;" src="../../../static/img/slider/Literatura.jpg" alt="Второй слайд"></a>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -22,6 +30,12 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+    </div>
+    <div class="col-sm" style="border: double gold; border-radius: 10px">
+      <a href = "{% url 'main:document' %}"><h1 style="background-color: #f0f0f0; text-align: center; ">Документы</h1></a>
+    </div>
+  </div>
 </div>
 
 <br>

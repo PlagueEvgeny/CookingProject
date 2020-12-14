@@ -1,4 +1,11 @@
 {% extends 'mainapp/base.html' %}
-    <h3 class="card-title">{{ personality.name }}</h3>
+
 {% block content %}
+    <div>
+    {% for item in categories %}
+        <p>{{personality.name}}</p>
+    <a style="color: #000; text-decoration: none;" href="{% url 'main:personality_page' item.pk %}"></a>
+    {% endfor %}
+    </div>
 {% endblock %}
+

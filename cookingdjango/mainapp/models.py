@@ -85,3 +85,17 @@ class Personality(models.Model):
     class Meta:
         verbose_name = 'Личность'
         verbose_name_plural = 'Личности'
+
+
+class Document(models.Model):
+
+    name = models.CharField(max_length=128)
+    desc = models.TextField(blank=True)
+    photo = models.ImageField('Документы', upload_to='static/img/document', height_field=None, width_field=None, max_length=100, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Документ'
+        verbose_name_plural = 'Документы'

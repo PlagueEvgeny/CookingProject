@@ -25,8 +25,9 @@ app_name = 'mainapp'
 urlpatterns = [
     path('', mainapp.index, name='index'),
     path('catalog/', mainapp.catalog, name='catalog'),
-    path('catalog/personalitys/<int:category_pers_pk>/', mainapp.personality, name='personality'),
-    path('catalog/personality/<int:personality_pk>', mainapp.personality_page, name='personality_page'),
+    path('personality/', mainapp.personality, name='personality'),
+    path('personality/personalitys/<int:personality_pk>', mainapp.personality_page, name='personality_page'),
+    path('document/<int:document_pk>', mainapp.document, name='document'),
     path('catalog/category/<int:category_pk>/', mainapp.catalog_section, name='catalog_section'),
     path('catalog/book/<int:book_pk>/', mainapp.book_page, name='book_page'),
 

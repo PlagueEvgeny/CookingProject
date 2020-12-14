@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 
-from mainapp.models import SubjectCategory, Books, Personality
+from mainapp.models import SubjectCategory, Books, Personality, Document
 
 
 def index(request):
     return render(request, 'mainapp/index.html')
+
 
 
 def catalog(request):
@@ -25,8 +26,8 @@ def catalog_section(request, category_pk):
     }
     return render(request, 'mainapp/catalog_page.html', context)
 
-def personality(request, category_pers_pk):
-    personality = Personality.objects.filter(category_pers_id=category_pers_pk)
+def personality(request):
+    personality = Personality.objects.filter()
     context = {
         'personality': personality,
         'page_title': 'каталог личностей'
@@ -50,6 +51,14 @@ def personality_page(request, personality_pk):
         'page_title': 'личности'
     }
     return render(request, 'mainapp/personality_page.html', context)
+
+def document(request, document_pk):
+    document = Document.objects.get(pk=document_pk)
+    context = {
+        'document': document,
+        'page_title': 'документы'
+    }
+    return render(request, 'mainapp/document.html', context)
 
 
 def model_form_upload(request):
